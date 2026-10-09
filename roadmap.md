@@ -1,0 +1,3 @@
+- [x] Read the supplied resume and portfolio brief, using the resume as authority.
+- [x] Build the responsive portfolio with verified sections, actual resume download, and real contact links.
+- [x] Verify the page and its interactions on desktop and mobile.
