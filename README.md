@@ -143,31 +143,7 @@ Install Node.js and npm before running the project.
 
 5. Open the local URL displayed in your terminal to view the website.
 
-### Build for Production
 
-To create a production build, run:
-
-```bash
-npm run build
-```
-
-To preview the production build locally, run:
-
-```bash
-npm run preview
-```
-
-To check code quality, run:
-
-```bash
-npm run lint
-```
-
-## Deployment
-
-The portfolio can be deployed using a compatible hosting platform, such as Vercel, by connecting the GitHub repository and configuring the appropriate build settings.
-
-Once deployed, the portfolio can be shared with recruiters through its public website URL.
 
 ## Contact
 
