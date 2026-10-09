@@ -1,0 +1,89 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-ink-soft: var(--ink-soft);
+  --color-warm: var(--warm);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
+
+:root {
+  --background: oklch(0.985 0.005 89);
+  --foreground: oklch(0.25 0.025 232);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.025 232);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.025 232);
+  --primary: oklch(0.31 0.046 230);
+  --primary-foreground: oklch(0.99 0.003 88);
+  --secondary: oklch(0.94 0.011 220);
+  --secondary-foreground: oklch(0.31 0.046 230);
+  --muted: oklch(0.956 0.008 92);
+  --muted-foreground: oklch(0.48 0.021 228);
+  --accent: oklch(0.92 0.027 189);
+  --accent-foreground: oklch(0.28 0.048 194);
+  --border: oklch(0.865 0.015 218);
+  --input: oklch(0.865 0.015 218);
+  --ring: oklch(0.51 0.075 190);
+  --teal: oklch(0.43 0.079 189);
+  --teal-light: oklch(0.94 0.027 190);
+  --ink-soft: oklch(0.39 0.029 226);
+  --warm: oklch(0.965 0.01 90);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family: "Manrope", sans-serif; }
+  ::selection { background: var(--accent); color: var(--foreground); }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+  section[id] { scroll-margin-top: 88px; }
+}
+
+@utility page-container { width: min(100% - 3rem, 1200px); margin-inline: auto; }
+@utility eyebrow { color: var(--teal); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+@utility section-title { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.17; font-weight: 700; letter-spacing: 0; }
+@utility section-pad { padding-block: clamp(4.5rem, 8vw, 7.5rem); }
+
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero-wash { position: absolute; inset: 0; background: linear-gradient(90deg, var(--background) 0%, oklch(0.985 0.005 89 / 93%) 26%, oklch(0.985 0.005 89 / 75%) 45%, transparent 76%); }
+.section-rule { border-top: 1px solid var(--border); }
+.label-line { display: inline-flex; align-items: center; gap: 0.7rem; }
+.label-line::before { content: ""; display: block; height: 1px; width: 30px; background: var(--teal); }
+.project-image { width: 100%; aspect-ratio: 1.55; object-fit: cover; transition: transform .5s ease; }
+.project-card:hover .project-image { transform: scale(1.035); }
+.timeline-item { position: relative; padding-left: 2rem; border-left: 1px solid var(--border); }
+.timeline-item::before { content: ""; position: absolute; top: 0.3rem; left: -5px; width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px var(--background); }
+.timeline-item:last-child { border-left-color: transparent; }
+.input-field { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: .85rem 1rem; font-size: .9rem; outline: none; transition: border-color .2s; }
+.input-field:focus { border-color: var(--teal); }
+@media (max-width: 767px) {
+  .hero-photo { object-position: 65% center; opacity: .22; }
+  .hero-wash { background: linear-gradient(90deg, var(--background) 0%, oklch(0.985 0.005 89 / 82%) 100%); }
+  .page-container { width: min(100% - 2.5rem, 1200px); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
